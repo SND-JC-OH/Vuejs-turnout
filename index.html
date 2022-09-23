@@ -8,9 +8,9 @@
 <body>
 <div id="app"></div>
 <div class="container">
-    <div class="row">
+    <div class="row mt-2">
         <div class="col">
-            <a class="btn btn-primary" data-bs-toggle="collapse" href="#key-point" role="button">Key Points</a>
+            <a class="btn btn-secondary" data-bs-toggle="collapse" href="#key-point" role="button">Key Points</a>
             <p>
             <div class="collapse" id="key-point">
                 <div class="card">
@@ -19,6 +19,82 @@
                         <pre>vue init webpack-simple turnout</pre>
                         <pre>npm install vue-router vuex firebase --save</pre>
                         <pre>npm run dev</pre>
+                    </div>
+                </div>
+                <hr>
+                <div class="card">
+                    <div class="card-header"><strong>Vue Router - Programmatic Navigation</strong></div>
+                    <div class="card-body">
+                        https://router.vuejs.org/guide/essentials/navigation.html
+                        <h5>Navigate to a different location</h5>
+                        <blockquote>Note: Inside of a Vue instance, you have access to the router instance as <code>$router</code>. You can therefore call <code>this.$router.push</code>.</blockquote>
+                        To navigate to a different URL, use router.push. This method pushes a new entry into the history stack, so when the user clicks the browser back button they will be taken to the previous URL.
+                        <table class="table"><thead><tr><th>Declarative</th><th>Programmatic</th></tr></thead><tbody><tr><td><code>&lt;router-link :to="..."&gt;</code></td><td><code>router.push(...)</code></td></tr></tbody></table>
+                        <h5>Replace current location</h5>
+                        <p>It acts like <code>router.push</code>, the only difference is that it navigates without pushing a new history entry, as its name suggests - it replaces the current entry.</p>
+                        <table class="table"><thead><tr><th>Declarative</th><th>Programmatic</th></tr></thead><tbody><tr><td><code>&lt;router-link :to="..." replace&gt;</code></td><td><code>router.replace(...)</code></td></tr></tbody></table>
+                    </div>
+                </div>
+                <hr>
+                <div class="card">
+                    <div class="card-header"><strong>Firebase Authentication on Websites</strong></div>
+                    <div class="card-body">
+                        https://firebase.google.com/docs/auth/web/start<br>
+
+<pre style="color:#d1d1d1;background:#000000;"><span style="color:#e66170; font-weight:bold; ">import</span> <span style="color:#b060b0; ">{</span> initializeApp <span style="color:#b060b0; ">}</span> from <span style="color:#02d045; ">"</span><span style="color:#00c4c4; ">firebase/app</span><span style="color:#02d045; ">"</span><span style="color:#b060b0; ">;</span>
+    <span style="color:#e66170; font-weight:bold; ">import</span> <span style="color:#b060b0; ">{</span> getAuth <span style="color:#b060b0; ">}</span> from <span style="color:#02d045; ">"</span><span style="color:#00c4c4; ">firebase/auth</span><span style="color:#02d045; ">"</span><span style="color:#b060b0; ">;</span>
+    
+    <span style="color:#9999a9; ">// </span><span style="color:#ffffff; background:#3c215f; ">TODO: Replace the following with your app's Firebase project configuration</span>
+    <span style="color:#9999a9; ">// See: </span><span style="color:#6070ec; ">https://firebase.google.com/docs/web/learn-more#config-object</span>
+    <span style="color:#e66170; font-weight:bold; ">const</span> firebaseConfig <span style="color:#d2cd86; ">=</span> <span style="color:#b060b0; ">{</span>
+      <span style="color:#9999a9; ">// ...</span>
+    <span style="color:#b060b0; ">}</span><span style="color:#b060b0; ">;</span>
+    
+    <span style="color:#9999a9; ">// Initialize Firebase</span>
+    <span style="color:#e66170; font-weight:bold; ">const</span> app <span style="color:#d2cd86; ">=</span> initializeApp<span style="color:#d2cd86; ">(</span>firebaseConfig<span style="color:#d2cd86; ">)</span><span style="color:#b060b0; ">;</span>
+    
+    
+    <span style="color:#9999a9; ">// Initialize Firebase Authentication and get a reference to the service</span>
+    <span style="color:#e66170; font-weight:bold; ">const</span> auth <span style="color:#d2cd86; ">=</span> getAuth<span style="color:#d2cd86; ">(</span>app<span style="color:#d2cd86; ">)</span><span style="color:#b060b0; ">;</span>
+    </pre>
+                    https://firebase.google.com/docs/auth/web/password-auth<br>
+
+    <pre style="color:#d1d1d1;background:#000000;"><span style="color:#e66170; font-weight:bold; ">import</span> <span style="color:#b060b0; ">{</span> getAuth<span style="color:#d2cd86; ">,</span> createUserWithEmailAndPassword <span style="color:#b060b0; ">}</span> from <span style="color:#02d045; ">"</span><span style="color:#00c4c4; ">firebase/auth</span><span style="color:#02d045; ">"</span><span style="color:#b060b0; ">;</span>
+
+        <span style="color:#e66170; font-weight:bold; ">const</span> auth <span style="color:#d2cd86; ">=</span> getAuth<span style="color:#d2cd86; ">(</span><span style="color:#d2cd86; ">)</span><span style="color:#b060b0; ">;</span>
+        createUserWithEmailAndPassword<span style="color:#d2cd86; ">(</span>auth<span style="color:#d2cd86; ">,</span> email<span style="color:#d2cd86; ">,</span> password<span style="color:#d2cd86; ">)</span>
+            <span style="color:#d2cd86; ">.</span>then<span style="color:#d2cd86; ">(</span><span style="color:#d2cd86; ">(</span>userCredential<span style="color:#d2cd86; ">)</span> <span style="color:#d2cd86; ">=</span><span style="color:#d2cd86; ">&gt;</span> <span style="color:#b060b0; ">{</span>
+            <span style="color:#9999a9; ">// Signed in </span>
+            <span style="color:#e66170; font-weight:bold; ">const</span> user <span style="color:#d2cd86; ">=</span> userCredential<span style="color:#d2cd86; ">.</span>user<span style="color:#b060b0; ">;</span>
+            <span style="color:#9999a9; ">// ...</span>
+            <span style="color:#b060b0; ">}</span><span style="color:#d2cd86; ">)</span>
+            <span style="color:#d2cd86; ">.</span><span style="color:#e66170; font-weight:bold; ">catch</span><span style="color:#d2cd86; ">(</span><span style="color:#d2cd86; ">(</span>error<span style="color:#d2cd86; ">)</span> <span style="color:#d2cd86; ">=</span><span style="color:#d2cd86; ">&gt;</span> <span style="color:#b060b0; ">{</span>
+            <span style="color:#e66170; font-weight:bold; ">const</span> errorCode <span style="color:#d2cd86; ">=</span> error<span style="color:#d2cd86; ">.</span>code<span style="color:#b060b0; ">;</span>
+            <span style="color:#e66170; font-weight:bold; ">const</span> errorMessage <span style="color:#d2cd86; ">=</span> error<span style="color:#d2cd86; ">.</span>message<span style="color:#b060b0; ">;</span>
+            <span style="color:#9999a9; ">// ..</span>
+            <span style="color:#b060b0; ">}</span><span style="color:#d2cd86; ">)</span><span style="color:#b060b0; ">;</span>
+        </pre>
+                        
+                    </div>
+                </div>
+
+                <hr>
+                <div class="card">
+                    <div class="card-header"><strong>How to solve Avoided redundant navigation to current location error in vue?</strong></div>
+                    <div class="card-body">
+ 
+<pre style="color:#d1d1d1;background:#000000;">router<span style="color:#d2cd86; ">.</span>push<span style="color:#d2cd86; ">(</span>route<span style="color:#d2cd86; ">)</span><span style="color:#d2cd86; ">.</span><span style="color:#e66170; font-weight:bold; ">catch</span><span style="color:#d2cd86; ">(</span>err <span style="color:#d2cd86; ">=</span><span style="color:#d2cd86; ">&gt;</span> <span style="color:#b060b0; ">{</span>
+    <span style="color:#9999a9; ">// Ignore the vuex err regarding  navigating to the page they are already on.</span>
+    <span style="color:#e66170; font-weight:bold; ">if</span> <span style="color:#d2cd86; ">(</span>
+      err<span style="color:#d2cd86; ">.</span>name <span style="color:#d2cd86; ">!==</span> <span style="color:#02d045; ">'</span><span style="color:#00c4c4; ">NavigationDuplicated</span><span style="color:#02d045; ">'</span> <span style="color:#d2cd86; ">&amp;&amp;</span>
+      <span style="color:#d2cd86; ">!</span>err<span style="color:#d2cd86; ">.</span>message<span style="color:#d2cd86; ">.</span>includes<span style="color:#d2cd86; ">(</span><span style="color:#02d045; ">'</span><span style="color:#00c4c4; ">Avoided redundant navigation to current location</span><span style="color:#02d045; ">'</span><span style="color:#d2cd86; ">)</span>
+    <span style="color:#d2cd86; ">)</span> <span style="color:#b060b0; ">{</span>
+      <span style="color:#9999a9; ">// But print any other errors to the console</span>
+      logError<span style="color:#d2cd86; ">(</span>err<span style="color:#d2cd86; ">)</span><span style="color:#b060b0; ">;</span>
+    <span style="color:#b060b0; ">}</span>
+  <span style="color:#b060b0; ">}</span><span style="color:#d2cd86; ">)</span><span style="color:#b060b0; ">;</span>
+</pre>
+
                     </div>
                 </div>
             </div>
