@@ -4,6 +4,7 @@ import Router from 'https://cdn.jsdelivr.net/npm/vue-router@3.6.5/dist/vue-route
 import Start from '../views/Start.vue.js'
 import Dashboard from '../components/Dashboard.vue.js'
 import Signin from '../components/Signin.vue.js'
+import Signup from '../components/Signup.vue.js' 
 
 Vue.use(Router)
 
@@ -22,6 +23,11 @@ const routes = [
         path: '/signin',
         name: 'signin',
         component: Signin
+    },
+    {
+        path: '/signup',
+        name: 'signup',
+        component: Signup
     }
 ]
 

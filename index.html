@@ -59,6 +59,21 @@
     </pre>
                     https://firebase.google.com/docs/auth/web/password-auth<br>
 
+                    <pre style="color:#d1d1d1;background:#000000;"><span style="color:#e66170; font-weight:bold; ">import</span> <span style="color:#b060b0; ">{</span> getAuth<span style="color:#d2cd86; ">,</span> signInWithEmailAndPassword <span style="color:#b060b0; ">}</span> from <span style="color:#02d045; ">"</span><span style="color:#00c4c4; ">firebase/auth</span><span style="color:#02d045; ">"</span><span style="color:#b060b0; ">;</span>
+
+                        <span style="color:#e66170; font-weight:bold; ">const</span> auth <span style="color:#d2cd86; ">=</span> getAuth<span style="color:#d2cd86; ">(</span><span style="color:#d2cd86; ">)</span><span style="color:#b060b0; ">;</span>
+                        signInWithEmailAndPassword<span style="color:#d2cd86; ">(</span>auth<span style="color:#d2cd86; ">,</span> email<span style="color:#d2cd86; ">,</span> password<span style="color:#d2cd86; ">)</span>
+                          <span style="color:#d2cd86; ">.</span>then<span style="color:#d2cd86; ">(</span><span style="color:#d2cd86; ">(</span>userCredential<span style="color:#d2cd86; ">)</span> <span style="color:#d2cd86; ">=</span><span style="color:#d2cd86; ">&gt;</span> <span style="color:#b060b0; ">{</span>
+                            <span style="color:#9999a9; ">// Signed in </span>
+                            <span style="color:#e66170; font-weight:bold; ">const</span> user <span style="color:#d2cd86; ">=</span> userCredential<span style="color:#d2cd86; ">.</span>user<span style="color:#b060b0; ">;</span>
+                            <span style="color:#9999a9; ">// ...</span>
+                          <span style="color:#b060b0; ">}</span><span style="color:#d2cd86; ">)</span>
+                          <span style="color:#d2cd86; ">.</span><span style="color:#e66170; font-weight:bold; ">catch</span><span style="color:#d2cd86; ">(</span><span style="color:#d2cd86; ">(</span>error<span style="color:#d2cd86; ">)</span> <span style="color:#d2cd86; ">=</span><span style="color:#d2cd86; ">&gt;</span> <span style="color:#b060b0; ">{</span>
+                            <span style="color:#e66170; font-weight:bold; ">const</span> errorCode <span style="color:#d2cd86; ">=</span> error<span style="color:#d2cd86; ">.</span>code<span style="color:#b060b0; ">;</span>
+                            <span style="color:#e66170; font-weight:bold; ">const</span> errorMessage <span style="color:#d2cd86; ">=</span> error<span style="color:#d2cd86; ">.</span>message<span style="color:#b060b0; ">;</span>
+                          <span style="color:#b060b0; ">}</span><span style="color:#d2cd86; ">)</span><span style="color:#b060b0; ">;</span>
+                        </pre>
+                        
     <pre style="color:#d1d1d1;background:#000000;"><span style="color:#e66170; font-weight:bold; ">import</span> <span style="color:#b060b0; ">{</span> getAuth<span style="color:#d2cd86; ">,</span> createUserWithEmailAndPassword <span style="color:#b060b0; ">}</span> from <span style="color:#02d045; ">"</span><span style="color:#00c4c4; ">firebase/auth</span><span style="color:#02d045; ">"</span><span style="color:#b060b0; ">;</span>
 
         <span style="color:#e66170; font-weight:bold; ">const</span> auth <span style="color:#d2cd86; ">=</span> getAuth<span style="color:#d2cd86; ">(</span><span style="color:#d2cd86; ">)</span><span style="color:#b060b0; ">;</span>
@@ -74,7 +89,15 @@
             <span style="color:#9999a9; ">// ..</span>
             <span style="color:#b060b0; ">}</span><span style="color:#d2cd86; ">)</span><span style="color:#b060b0; ">;</span>
         </pre>
-                        
+                
+<pre style="color:#d1d1d1;background:#000000;"><span style="color:#e66170; font-weight:bold; ">const</span> auth <span style="color:#d2cd86; ">=</span> getAuth<span style="color:#d2cd86; ">(</span><span style="color:#d2cd86; ">)</span><span style="color:#b060b0; ">;</span>
+    signOut<span style="color:#d2cd86; ">(</span>auth<span style="color:#d2cd86; ">)</span><span style="color:#d2cd86; ">.</span>then<span style="color:#d2cd86; ">(</span><span style="color:#d2cd86; ">(</span><span style="color:#d2cd86; ">)</span> <span style="color:#d2cd86; ">=</span><span style="color:#d2cd86; ">&gt;</span> <span style="color:#b060b0; ">{</span>
+      <span style="color:#9999a9; ">// Sign-out successful.</span>
+    <span style="color:#b060b0; ">}</span><span style="color:#d2cd86; ">)</span><span style="color:#d2cd86; ">.</span><span style="color:#e66170; font-weight:bold; ">catch</span><span style="color:#d2cd86; ">(</span><span style="color:#d2cd86; ">(</span>error<span style="color:#d2cd86; ">)</span> <span style="color:#d2cd86; ">=</span><span style="color:#d2cd86; ">&gt;</span> <span style="color:#b060b0; ">{</span>
+      <span style="color:#9999a9; ">// An error happened.</span>
+    <span style="color:#b060b0; ">}</span><span style="color:#d2cd86; ">)</span><span style="color:#b060b0; ">;</span>
+    </pre>
+            
                     </div>
                 </div>
 

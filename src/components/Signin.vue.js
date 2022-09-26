@@ -32,7 +32,10 @@ const template = `
         </div>
         <div class="row mb-3">
             <div class="col">
-            <button class="btn btn-primary w-100" v-on:click="signIn()">Sign in</button>
+                <div class="d-flex flex-row-reverse">
+                    <div class="ps-1"><button class="btn btn-primary w-100" v-on:click="signIn()">Sign in</button></div>
+                    <div class="ps-1"><router-link class="btn btn-secondary w-100" to="/signup">Sign up</router-link></div>
+                </div>
             </div>
         </div>
     </form>
