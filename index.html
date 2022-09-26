@@ -126,6 +126,28 @@
     <span style="color:#9999a9; ">// Initialize Realtime Database and get a reference to the service</span>
     <span style="color:#e66170; font-weight:bold; ">const</span> database <span style="color:#d2cd86; ">=</span> getDatabase<span style="color:#d2cd86; ">(</span>app<span style="color:#d2cd86; ">)</span><span style="color:#b060b0; ">;</span>
     </pre>
+    <hr>
+
+<pre style="color:#d1d1d1;background:#000000;"><span style="color:#e66170; font-weight:bold; ">import</span> <span style="color:#b060b0; ">{</span> auth<span style="color:#d2cd86; ">,</span> signOut<span style="color:#d2cd86; ">,</span> eventRef<span style="color:#d2cd86; ">,</span> onValue <span style="color:#b060b0; ">}</span> from <span style="color:#02d045; ">'</span><span style="color:#00c4c4; ">../firebaseApp.js</span><span style="color:#02d045; ">'</span>
+
+    onValue<span style="color:#d2cd86; ">(</span>eventRef<span style="color:#d2cd86; ">,</span> <span style="color:#d2cd86; ">(</span>snapshot<span style="color:#d2cd86; ">)</span> <span style="color:#d2cd86; ">=</span><span style="color:#d2cd86; ">&gt;</span> <span style="color:#b060b0; ">{</span>
+        <span style="color:#e66170; font-weight:bold; ">let</span> events <span style="color:#d2cd86; ">=</span> <span style="color:#d2cd86; ">[</span><span style="color:#d2cd86; ">]</span>
+        snapshot<span style="color:#d2cd86; ">.</span><span style="color:#e66170; font-weight:bold; ">forEach</span><span style="color:#d2cd86; ">(</span>event <span style="color:#d2cd86; ">=</span><span style="color:#d2cd86; ">&gt;</span> <span style="color:#b060b0; ">{</span>
+        events<span style="color:#d2cd86; ">.</span>push<span style="color:#d2cd86; ">(</span>event<span style="color:#d2cd86; ">.</span>val<span style="color:#d2cd86; ">(</span><span style="color:#d2cd86; ">)</span><span style="color:#d2cd86; ">)</span>
+        <span style="color:#b060b0; ">}</span><span style="color:#d2cd86; ">)</span>
+        console<span style="color:#d2cd86; ">.</span><span style="color:#e66170; font-weight:bold; ">log</span><span style="color:#d2cd86; ">(</span>events<span style="color:#d2cd86; ">)</span>
+    <span style="color:#b060b0; ">}</span><span style="color:#d2cd86; ">)</span>
+    
+    <span style="color:#e66170; font-weight:bold; ">import</span> <span style="color:#b060b0; ">{</span> eventRef<span style="color:#d2cd86; ">,</span> set <span style="color:#b060b0; ">}</span> from <span style="color:#02d045; ">'</span><span style="color:#00c4c4; ">../firebaseApp.js</span><span style="color:#02d045; ">'</span>
+    
+    addEvent<span style="color:#d2cd86; ">(</span><span style="color:#d2cd86; ">)</span> <span style="color:#b060b0; ">{</span>
+        <span style="color:#e66170; font-weight:bold; ">this</span><span style="color:#d2cd86; ">.</span>event<span style="color:#d2cd86; ">.</span>email <span style="color:#d2cd86; ">=</span> <span style="color:#e66170; font-weight:bold; ">this</span><span style="color:#d2cd86; ">.</span>$store<span style="color:#d2cd86; ">.</span>state<span style="color:#d2cd86; ">.</span>user<span style="color:#d2cd86; ">.</span>email
+        set<span style="color:#d2cd86; ">(</span>eventRef<span style="color:#d2cd86; ">,</span> <span style="color:#e66170; font-weight:bold; ">this</span><span style="color:#d2cd86; ">.</span>event<span style="color:#d2cd86; ">)</span>
+        <span style="color:#d2cd86; ">.</span><span style="color:#e66170; font-weight:bold; ">catch</span><span style="color:#d2cd86; ">(</span><span style="color:#e66170; font-weight:bold; ">function</span><span style="color:#d2cd86; ">(</span>error<span style="color:#d2cd86; ">)</span> <span style="color:#b060b0; ">{</span>
+            console<span style="color:#d2cd86; ">.</span><span style="color:#e66170; font-weight:bold; ">log</span><span style="color:#d2cd86; ">(</span>error<span style="color:#d2cd86; ">)</span>
+        <span style="color:#b060b0; ">}</span><span style="color:#d2cd86; ">)</span>
+    <span style="color:#b060b0; ">}</span>
+    </pre>
     
                     </div>
                 </div>

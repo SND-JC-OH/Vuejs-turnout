@@ -10,7 +10,7 @@ const template = `
 </div>
 `
 
-import { auth, signOut } from '../firebaseApp.js'
+import { auth, signOut, eventRef, onValue } from '../firebaseApp.js'
 import AddEvent from './AddEvent.vue.js'
 
 export default {
@@ -18,6 +18,15 @@ export default {
     template: template,
     components: {
         'add-event': AddEvent
+    },
+    mounted() {
+        onValue(eventRef, (snapshot) => {
+            let events = []
+            snapshot.forEach(event => {
+                events.push(event.val())
+            })
+            console.log(events)
+        })
     },
     methods: {
         signOut() {
