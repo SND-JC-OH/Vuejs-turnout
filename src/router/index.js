@@ -5,7 +5,7 @@ import Start from '../views/Start.vue.js'
 import Dashboard from '../components/Dashboard.vue.js'
 import Signin from '../components/Signin.vue.js'
 import Signup from '../components/Signup.vue.js' 
-
+import AddEvent from '../components/AddEvent.vue.js'
 Vue.use(Router)
 
 const routes = [
@@ -28,6 +28,11 @@ const routes = [
         path: '/signup',
         name: 'signup',
         component: Signup
+    },
+    {
+        path: '/add-event',
+        name: 'add-event',
+        component: AddEvent
     }
 ]
 

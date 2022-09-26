@@ -103,6 +103,34 @@
 
                 <hr>
                 <div class="card">
+                    <div class="card-header"><strong>Installation & Setup in JavaScript</strong></div>
+                    <div class="card-body">
+                        https://firebase.google.com/docs/database/web/start<br>
+                        https://firebase.google.com/docs/database/web/read-and-write<br>
+
+<pre style="color:#d1d1d1;background:#000000;"><span style="color:#e66170; font-weight:bold; ">import</span> <span style="color:#b060b0; ">{</span> initializeApp <span style="color:#b060b0; ">}</span> from <span style="color:#02d045; ">"</span><span style="color:#00c4c4; ">firebase/app</span><span style="color:#02d045; ">"</span><span style="color:#b060b0; ">;</span>
+    <span style="color:#e66170; font-weight:bold; ">import</span> <span style="color:#b060b0; ">{</span> getDatabase <span style="color:#b060b0; ">}</span> from <span style="color:#02d045; ">"</span><span style="color:#00c4c4; ">firebase/database</span><span style="color:#02d045; ">"</span><span style="color:#b060b0; ">;</span>
+    
+    <span style="color:#9999a9; ">// </span><span style="color:#ffffff; background:#3c215f; ">TODO: Replace the following with your app's Firebase project configuration</span>
+    <span style="color:#9999a9; ">// See: </span><span style="color:#6070ec; ">https://firebase.google.com/docs/web/learn-more#config-object</span>
+    <span style="color:#e66170; font-weight:bold; ">const</span> firebaseConfig <span style="color:#d2cd86; ">=</span> <span style="color:#b060b0; ">{</span>
+      <span style="color:#9999a9; ">// ...</span>
+      <span style="color:#9999a9; ">// The value of `databaseURL` depends on the location of the database</span>
+      databaseURL<span style="color:#b060b0; ">:</span> <span style="color:#02d045; ">"</span><span style="color:#00c4c4; ">https://DATABASE_NAME.firebaseio.com</span><span style="color:#02d045; ">"</span><span style="color:#d2cd86; ">,</span>
+    <span style="color:#b060b0; ">}</span><span style="color:#b060b0; ">;</span>
+    
+    <span style="color:#9999a9; ">// Initialize Firebase</span>
+    <span style="color:#e66170; font-weight:bold; ">const</span> app <span style="color:#d2cd86; ">=</span> initializeApp<span style="color:#d2cd86; ">(</span>firebaseConfig<span style="color:#d2cd86; ">)</span><span style="color:#b060b0; ">;</span>
+    
+    
+    <span style="color:#9999a9; ">// Initialize Realtime Database and get a reference to the service</span>
+    <span style="color:#e66170; font-weight:bold; ">const</span> database <span style="color:#d2cd86; ">=</span> getDatabase<span style="color:#d2cd86; ">(</span>app<span style="color:#d2cd86; ">)</span><span style="color:#b060b0; ">;</span>
+    </pre>
+    
+                    </div>
+                </div>
+                <hr>
+                <div class="card">
                     <div class="card-header"><strong>How to solve Avoided redundant navigation to current location error in vue?</strong></div>
                     <div class="card-body">
                     stackoverflow.com/questions/62462276/how-to-solve-avoided-redundant-navigation-to-current-location-error-in-vue
@@ -120,6 +148,7 @@
 
                     </div>
                 </div>
+
             </div>
         </div>
     </div>

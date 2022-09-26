@@ -1,6 +1,7 @@
   // Import the functions you need from the SDKs you need
  import { initializeApp  } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
  import { getAuth, signOut, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+ import { getDatabase, ref, set }  from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -18,15 +19,23 @@ const firebaseConfig = {
     projectId: "turnout-efc2b",
     storageBucket: "turnout-efc2b.appspot.com",
     messagingSenderId: "390414266503",
-    appId: "1:390414266503:web:8563490b77068b7b28c822"
+    appId: "1:390414266503:web:8563490b77068b7b28c822",
+    // The value of `databaseURL` depends on the location of the database
+    databaseURL: "https://turnout-efc2b-default-rtdb.firebaseio.com",
 }
 
 // Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig)
+// Initialize Realtime Database and get a reference to the service
+const database = getDatabase(firebaseApp);
+
+const eventRef = ref(database, 'events')
 
 const auth = getAuth(firebaseApp)
 export {
   auth,
   signOut,
-  createUserWithEmailAndPassword
+  createUserWithEmailAndPassword,
+  eventRef,
+  set
 }
