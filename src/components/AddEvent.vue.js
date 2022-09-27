@@ -21,14 +21,14 @@ const template = `
                     <input type="text" class="form-control" name="title" v-model="event.location">
                 </div>
                 <div class="text-end">
-                    <button class="btn btn-primary btn-sm" v-on:click="addEvent()">Submit</button>
+                    <button class="btn btn-primary btn-sm" v-on:click="addEvent">Submit</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
 `
-import { eventRef, set } from '../firebaseApp.js'
+import { eventRef, push, set } from '../firebaseApp.js'
 
 export default {
     name: 'add-event',
@@ -42,16 +42,40 @@ export default {
                 location: '',
                 email: ''
             },
+            error: {
+
+            },
             showForm: false
         }
     },
     methods: {
-        addEvent() {
+        addEvent(event) {
+            event.preventDefault()
             this.event.email = this.$store.state.user.email
-            set(eventRef, this.event)
+            push(eventRef, this.event)
+                .then((response) => {
+                    this.event = {
+                        title: '',
+                        description: '',
+                        date: '',
+                        location: '',
+                        email: ''
+                    }
+                })
                 .catch(function(error) {
+                    this.error = error
+                })
+
+            /*
+            set(eventRef, this.event)
+                .then(() => {
+                    console.log()
+                })
+                .catch(function(error) {
+                    this.error = error
                     console.log(error)
                 })
+            */
         }
     }
 }

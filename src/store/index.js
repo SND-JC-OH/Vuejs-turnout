@@ -5,7 +5,8 @@ import * as actions from './action.js'
 Vue.use(Vuex)
 
 const state = {
-    user: {}
+    user: {},
+    events: [],
 }
 
 export default new Vuex.Store({

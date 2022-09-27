@@ -1,7 +1,7 @@
   // Import the functions you need from the SDKs you need
  import { initializeApp  } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
  import { getAuth, signOut, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
- import { getDatabase, ref, set, onValue }  from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
+ import { getDatabase, ref, child, push, update, set, onValue }  from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -29,7 +29,7 @@ const firebaseApp = initializeApp(firebaseConfig)
 // Initialize Realtime Database and get a reference to the service
 const database = getDatabase(firebaseApp);
 
-const eventRef = ref(database, 'events')
+const eventRef = child(ref(database), 'events')
 
 const auth = getAuth(firebaseApp)
 export {
@@ -38,5 +38,7 @@ export {
   createUserWithEmailAndPassword,
   eventRef,
   set,
+  push, 
+  update,
   onValue
 }

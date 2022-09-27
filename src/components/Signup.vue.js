@@ -1,6 +1,7 @@
 const template = `
 <div class="row">
     <div class="col">
+        <h4>Sign up</h4>
         <div class="alert alert-warning" role="alert" v-if="error.message">
         {{error.message}}
         </div>
